@@ -5,13 +5,15 @@ va applicato uno sconto del 20% per i minorenni
 va applicato uno sconto del 40% per gli over 65.
 */
 
+let element = document.getElementById('prezzo-biglietto');
+
 // chiedere all'utente quanti anni ha
 
-let age = prompt ("Quanti anni hai ?");
+let age = parseInt(prompt ("Quanti anni hai ?"));
 
 // chiedere all'utente quanti chilometri deve percorrere
 
-let chilometri = prompt ("Quanti kilometri deve percorrere ?");
+let chilometri = parseInt (prompt ("Quanti kilometri deve percorrere ?"));
 
 // calcolare il prezzo del biglietto
 
@@ -20,18 +22,18 @@ console.log(costoBiglietto);
 
 // calcolare lo sconto in base all'età
 
-let prezzoMinorenne = costoBiglietto * 20 / 100;
-console.log(prezzoMinorenne);
+if (age < 18) {
+    let price = costoBiglietto - (costoBiglietto * 20 / 100);
+    console.log(price);
+    element.innerHTML = 'Il prezzo del biglietto per te che sei minorenne è di ' + price;
+} else if (age > 64) {
+    let price = costoBiglietto - (costoBiglietto * 40 / 100);
+    console.log(price);
+    element.innerHTML = 'Il prezzo del biglietto per te che sei over 65 è di ' + price;
+} else {
+    element.innerHTML = 'Il prezzo del biglietto per te è di ' + costoBiglietto;
+}
 
-let prezzoOver65 = costoBiglietto * 40 / 100;
-console.log(prezzoOver65);
-
-// scegliere il prezzo in base all'età
-
-
-
-
-// stampare il biglietto
 
 
 
